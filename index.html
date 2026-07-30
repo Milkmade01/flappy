@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff6e7" />
+    <title>Kuchu Puchu Flap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <main class="app-shell">
+      <section id="selectionScreen" class="screen selection-screen theme-ayush">
+        <div class="brand-lockup">
+          <div class="brand-mark">✦</div>
+          <div>
+            <p class="eyebrow">KUCHU PUCHU AIRWAYS</p>
+            <h1>FLAP<br /><span>FRENZY</span></h1>
+          </div>
+        </div>
+
+        <div class="selection-copy">
+          <p class="kicker">A very important decision</p>
+          <h2>Select your <span>kuchu puchu</span></h2>
+          <p class="subcopy">Pick your tiny pilot, then flap like your reputation depends on it.</p>
+        </div>
+
+        <div class="character-grid" role="radiogroup" aria-label="Select your character">
+          <button class="character-card is-selected" data-character="Ayush" aria-pressed="true">
+            <span class="card-spark spark-a">✦</span>
+            <span class="avatar-ring avatar-lollipop"><img src="https://iili.io/C8Uae6B.png" alt="Ayush" /></span>
+            <span class="character-name">Ayush</span>
+            <span class="character-tag">THE CANDY CRUSHER</span>
+            <span class="selection-dot">✓</span>
+          </button>
+          <button class="character-card" data-character="Adheeraj" aria-pressed="false">
+            <span class="card-spark spark-b">✦</span>
+            <span class="avatar-ring avatar-soul"><img src="https://iili.io/C8UuI2a.png" alt="Adheeraj" /></span>
+            <span class="character-name">Adheeraj</span>
+            <span class="character-tag">THE NEON SOUL</span>
+            <span class="selection-dot">✓</span>
+          </button>
+        </div>
+
+        <button id="selectionPlayButton" class="primary-button selection-play-button">Play as Ayush <span>→</span></button>
+      </section>
+
+      <section id="gameScreen" class="screen game-screen theme-ayush is-hidden">
+        <header class="game-header">
+          <button id="backToSelect" class="back-button" aria-label="Back to character selection">← <span>switch kuchu</span></button>
+          <div class="game-logo">FLAP <span>FRENZY</span></div>
+          <div class="score-pills"><div><small>SCORE</small><strong id="score">0</strong></div><div><small>BEST</small><strong id="best">0</strong></div></div>
+        </header>
+
+        <div class="game-layout">
+          <div class="play-area">
+            <div class="game-badge"><span id="selectedBadge">AYUSH</span> AIR</div>
+            <canvas id="gameCanvas" width="420" height="700" aria-label="Flappy style game area"></canvas>
+            <div id="readyOverlay" class="canvas-overlay">
+              <div class="ready-sticker">READY?</div>
+              <p>tap, click, or press <b>space</b><br />to make your kuchu puchu flap</p>
+              <button id="playButton" class="primary-button small-button">Let’s flap <span>↗</span></button>
+            </div>
+          </div>
+        </div>
+
+        <div id="gameOverOverlay" class="modal-backdrop is-hidden">
+          <div class="game-over-card">
+            <div class="over-icon">☠</div>
+            <p class="eyebrow">FLIGHT REPORT</p>
+            <h2>That was <span>rough.</span></h2>
+            <div class="roast-quote"><span class="quote-mark">“</span><p id="roastQuote">Even the pipes saw that coming.</p><span class="quote-mark close">”</span></div>
+            <div class="final-stats"><div><small>SCORE</small><b id="finalScore">0</b></div><div><small>BEST</small><b id="finalBest">0</b></div></div>
+            <div class="modal-actions"><button id="retryButton" class="primary-button">Try again <span>↻</span></button><button id="changeButton" class="ghost-button">Change kuchu</button></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <audio id="selectionAudio" src="https://www.image2url.com/r2/default/audio/1785437255696-350ef396-a46e-4515-b8e3-728f2309b5e8.mp3" loop preload="auto"></audio>
+    <audio id="ayushLoseAudio" src="https://www.image2url.com/r2/default/audio/1785437183718-d3b8857b-d2a2-46b8-99de-d4ebe1460194.mp3" preload="auto"></audio>
+    <audio id="adheerajLoseAudio" src="https://www.image2url.com/r2/default/audio/1785437017516-f1d17020-27ce-4a77-bf6e-d141230bc0d1.mp3" preload="auto"></audio>
+    <script src="game.js"></script>
+  </body>
+</html>
